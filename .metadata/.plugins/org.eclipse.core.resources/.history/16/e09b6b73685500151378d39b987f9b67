@@ -1,0 +1,78 @@
+package urok7;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.UTFDataFormatException;
+import java.io.Writer;
+import java.nio.ByteBuffer;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.logging.Logger;
+
+import javax.sound.sampled.AudioFormat.Encoding;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+public class Main {
+	public static ArrayList<String> wordsContainer;
+	public static File fileFile;
+	
+	public static void main(String[] args) throws IOException {
+		Path path = Paths.get("C:\\Users\\cpt2egi\\Desktop");
+		Path file = path.resolve("TestFolder2");
+
+		fileFile = new File(file.toString() + "\\bg_utf8.txt");
+		wordsContainer = new ArrayList<String>();
+		readLargerTextFile(fileFile, wordsContainer);
+		ArrayList<String> test = new ArrayList<String>();
+		test = getByPrefix("ал");
+		for(int i=0;i<test.size();i++) {
+		System.out.println(test.get(i));
+		}
+	}
+
+	static void readLargerTextFile(File aFileName, ArrayList<String> words)
+			throws IOException {
+		try (Scanner scanner = new Scanner(aFileName, "UTF8")) {
+			while (scanner.hasNextLine()) {
+				words.add(scanner.nextLine());
+			}
+		}
+	}
+	
+	public static void defineLetterBorders() {
+		
+	}
+
+	public static ArrayList<String> getByPrefix(String prefix) {
+		ArrayList<String> temp = new ArrayList<String>();
+		for (String s : wordsContainer) {
+			if (s.startsWith(prefix))
+				temp.add(s);
+		}
+		return temp;
+	}
+	public static void addWord(String word) throws IOException {
+		Writer out = new BufferedWriter(new OutputStreamWriter(
+			    new FileOutputStream(fileFile), "UTF8"));
+			for(int i;)
+			{
+			try {
+			    out.write(word);
+			} finally {
+			    out.close();
+			}
+			}
+	}
+}

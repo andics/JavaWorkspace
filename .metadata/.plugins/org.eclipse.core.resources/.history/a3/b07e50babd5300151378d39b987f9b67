@@ -1,0 +1,5 @@
+package geekycamp.jaxrs;
+
+public class Teacher {
+
+}

@@ -1,0 +1,11 @@
+package com.sap.edu.geekycamp.examples.virtualclasses;
+
+public class CarExplorer {
+
+	public static void main(String[] args) {
+		// create instance of your cars and print their parameters here using the method printCarParameters (Car car);
+		
+		// TODO
+		
+	}
+}

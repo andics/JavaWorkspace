@@ -1,0 +1,13 @@
+package urok4;
+
+public class Chovek {
+	public String name;
+	public int age;
+	public boolean pol;
+	public Chovek(String name, int age, boolean pol)
+	{
+		this.name=name;
+		this.age=age;
+		this.pol=pol;
+	}
+}

@@ -1,0 +1,63 @@
+package urok2.com.sap.edu.geekycamp.examples.virtualclasses;
+
+/**
+ * This is an example for abstract (virtual) class. 
+ * 1. Create four subclasses of this class each with it's own implementation of the vehicle specifics.
+ * 
+ * 2. Create a car which will print also the car color.
+ * 
+ * 3. Modify this class to contain another method - void drive (long kilometers) which will be stored in the class, and will be printit also as a car parameter
+ * 
+ * 4. Add method for oil change and another method for check how many kilometers are left till the next oil change.
+ *  Assume that oil change is needed every 10 000 km (make it a constant)
+ * 
+ */
+public abstract class Car {
+	public final int maxkilometars=10000;
+	
+	public int driven=0;
+	
+	abstract String getBrand();
+
+	abstract String getType();
+
+	abstract String getFuelType();
+
+	abstract int getMaxSpeed();
+
+	abstract int getNumberOfSeats();
+	
+	public int oilLeft()
+	{
+	driven=100;
+	return maxkilometars-driven;
+	}
+	
+	public int drive(){
+		int kilometers = 0;
+		return kilometers;
+	}
+	
+	public int drive(int kilometres){
+		return 10000-kilometres;
+	}
+
+	public void printCarParameters() {
+		StringBuilder carParameters = new StringBuilder();
+		carParameters.append("brand:")
+			.append(getBrand())
+			.append(", type:")
+			.append(getType())
+			.append(", fuel:")
+			.append(getFuelType())
+			.append(", max speed:")
+			.append(getMaxSpeed())
+			.append(", seats:")
+			.append(getNumberOfSeats())
+			.append(", driven:")
+			.append(this.drive())
+			.append(", TillOil:")
+			.append(this.oilLeft());
+		System.out.println(carParameters);
+	}
+}
